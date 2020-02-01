@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Scenes/Character/Sprites/Walk_Left/Character_Walk_Left_0002.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Character/Sprites/Walk_Left/Character_Walk_Left_0007.png" type="Texture" id=2]
@@ -17,18 +17,30 @@
 [ext_resource path="res://Scenes/Character/Sprites/Walk_Right/Character_Walk_Right_0004.png" type="Texture" id=15]
 [ext_resource path="res://Scenes/Character/Sprites/Walk_Left/Character_Walk_Left_0006.png" type="Texture" id=16]
 [ext_resource path="res://Scenes/Character/Character.gd" type="Script" id=17]
+[ext_resource path="res://Scenes/Character/Sprites/Character_Stand_Right.png" type="Texture" id=18]
+[ext_resource path="res://Scenes/Character/Sprites/Character_Stand_Left.png" type="Texture" id=19]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
+"frames": [ ExtResource( 19 ) ],
+"loop": true,
+"name": "Stand_Left",
+"speed": 0.0
+}, {
+"frames": [ ExtResource( 18 ) ],
+"loop": true,
+"name": "Stand_Right",
+"speed": 0.0
+}, {
 "frames": [ ExtResource( 7 ), ExtResource( 11 ), ExtResource( 3 ), ExtResource( 6 ), ExtResource( 15 ), ExtResource( 12 ), ExtResource( 9 ), ExtResource( 14 ) ],
 "loop": true,
 "name": "Walk_Right",
-"speed": 5.0
+"speed": 20.0
 }, {
 "frames": [ ExtResource( 5 ), ExtResource( 8 ), ExtResource( 1 ), ExtResource( 10 ), ExtResource( 4 ), ExtResource( 13 ), ExtResource( 16 ), ExtResource( 2 ) ],
 "loop": true,
 "name": "Walk_Left",
-"speed": 5.0
+"speed": 20.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -39,8 +51,7 @@ script = ExtResource( 17 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
-animation = "Walk_Right"
-frame = 6
+animation = "Stand_Right"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
